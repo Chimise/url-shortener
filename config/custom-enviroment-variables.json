@@ -1,0 +1,10 @@
+{
+    "db": {
+        "url": "MONGODB_URL"
+    },
+    "app": {
+        "hostname": "HOSTNAME",
+        "port": "PORT",
+        "url": "BACKEND_URL"
+    }
+}

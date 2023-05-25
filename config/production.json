@@ -1,0 +1,6 @@
+{
+    "rateLimiting": {
+        "windowMs": 60000,
+        "max": 30
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "db": {
+        "url": "mongodb://localhost:27017/url-shortener"
+    },
+    "rateLimiting": {
+        "windowMs": 60000,
+        "max": 100
+    },
+    "app": {
+        "hostname": "localhost",
+        "port": 5000,
+        "url": "http://localhost:5000"
+    }
+}
