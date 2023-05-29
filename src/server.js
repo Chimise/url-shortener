@@ -6,6 +6,7 @@ const connectDb = require('./shared/connectDb');
 const {PORT} = require('./shared/config');
 const urlController = require('./controllers/url')
 const errorController = require('./controllers/errorHandler');
+const matchAll = require('./controllers/matchAll');
 
 const rateConfig = config.get('rateLimiting');
 
@@ -23,10 +24,15 @@ urlController(app);
 
 app.use(errorController);
 
+app.use('*', matchAll);
+
 connectDb().then(() => {
     app.listen(PORT, () => {
         console.log(`Server running on Port ${PORT}`);
     })
+}).catch(() => {
+    console.log('Could not connect to db');
+    process.exit(1);
 })
 
 

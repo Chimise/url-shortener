@@ -15,6 +15,7 @@ const clickSchema = new Schema({
     }
 })
 
+
 toJson(clickSchema);
 
 module.exports = mongoose.model('Click', clickSchema);
