@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+# Mongodb service
+  db:
+    image: mongo:latest
+    container_name: mongo_prod
+    volumes:
+      - mongo_data:/data/db
+
+# Node.js Express App
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: production
+    container_name: server-prod
+    ports:
+      - 5050:5050
+    environment:
+      - NODE_ENV=production
+      - BACKEND_URL=http://localhost:5050
+      - PORT=5050
+      - MONGODB_URL=mongodb://db:27017/urlshortener?serverSelectionTimeoutMS=3000&directConnection=true
+    depends_on:
+      - db
+
+volumes:
+  mongo_data: {}
+

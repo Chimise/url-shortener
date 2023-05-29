@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js",
-    "start": "NODE_ENV=production node src/server.js"
+    "start": "NODE_ENV=production node src/server.js",
+    "docker:prod": "docker compose up --build",
+    "docker:dev": "docker compose -f docker-compose.dev.yaml up --build"
   },
   "author": "Nnakude Chisom",
   "license": "ISC",
